@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Meri Jaan ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Trebuchet MS", "Comic Sans MS", cursive;
+    background: linear-gradient(135deg, #ffe0ec, #fff0e5);
+    color: #9b4668;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.slide.active {
+    display: flex;
+    animation: appear .8s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: scale(.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.content {
+    width: min(650px, 100%);
+    padding: 25px 15px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: clamp(35px, 7vw, 57px);
+    color: #f04480;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(25px, 5vw, 36px);
+    color: #e84c83;
+    margin: 18px 0;
+}
+
+p {
+    font-size: clamp(18px, 3.5vw, 23px);
+    line-height: 1.65;
+    margin: 12px auto;
+    color: #85596c;
+}
+
+.scene {
+    margin: 25px auto;
+    min-height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.character {
+    font-size: clamp(75px, 16vw, 125px);
+    display: inline-block;
+    animation: bounce 2s infinite ease-in-out;
+    filter: drop-shadow(0 8px 8px #b56c8730);
+}
+
+.character:nth-child(2) {
+    animation-delay: .4s;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.heart {
+    font-size: 38px;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.3); }
+}
+
+.btn {
+    border: none;
+    border-radius: 50px;
+    padding: 16px 27px;
+    margin: 12px 5px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff4f88, #ff83a9);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 7px 20px #ed6a963d;
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: scale(1.07);
+}
+
+.btn:active {
+    transform: scale(.96);
+}
+
+.note {
+    background: #ffffffb8;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    padding: 30px 22px;
+    box-shadow: 0 15px 40px #bd638a20;
+}
+
+.small {
+    font-size: 16px;
+    color: #a76c82;
+}
+
+.pink { background: linear-gradient(145deg, #ffe0ed, #fff3e7); }
+.peach { background: linear-gradient(145deg, #ffe4d6, #fff0ed); }
+.purple { background: linear-gradient(145deg, #eadfff, #ffe3f0); }
+.night {
+    background: linear-gradient(145deg, #211c3b, #52385e);
+}
+.night h1, .night h2 { color: #ffc1dc; }
+.night p { color: #ffe5ef; }
+
+.prop {
+    font-size: clamp(45px, 10vw, 85px);
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+.gift {
+    font-size: 95px;
+    animation: gift 1.5s infinite;
+}
+
+@keyframes gift {
+    50% { transform: rotate(8deg) scale(1.1); }
+}
+
+.blanket {
+    background: linear-gradient(135deg, #f5a7c4, #a66ca4);
+    padding: 24px 12px;
+    border-radius: 65px 65px 30px 30px;
+    margin: 20px auto;
+    max-width: 430px;
+    box-shadow: 0 12px 25px #0002;
+}
+
+.room {
+    background: #ffffff12;
+    border: 2px solid #ffffff25;
+    border-radius: 28px;
+    padding: 15px;
+}
+
+.stars {
+    font-size: 25px;
+    letter-spacing: 10px;
+    margin: 15px;
+}
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: floatUp 7s linear forwards;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(300deg);
+        opacity: 0;
+    }
+}
+
+.final {
+    background: linear-gradient(135deg, #ffe0eb, #fff0dd);
+}
+
+.final-message {
+    display: none;
+    animation: appear 1s ease;
+}
+
+@media(max-width: 500px) {
+    .content { padding: 18px 8px; }
+    .scene { min-height: 155px; }
+    .btn { font-size: 16px; padding: 14px 21px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1: SORRY NOTE -->
+<section class="slide pink active">
+    <div class="content">
+        <div class="stars">💕 ✨ 🌸</div>
+
+        <div class="note">
+            <div class="prop">💌</div>
+
+            <h1>Sorry Meri Jaan ❤️</h1>
+
+            <p>
+                Aap naraz hain na mujhse... 🥺
+            </p>
+
+            <p>
+                Bas itna hi note hai meri jaan.
+                Aage aapke liye kuch chhote-chhote surprises hain. ❤️
+            </p>
+
+            <div class="heart">🧸💗🧸</div>
+
+            <button class="btn" onclick="nextSlide()">
+                Aage dekhiye meri jaan 💗
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- SLIDE 2: FOOT MASSAGE -->
+<section class="slide peach">
+    <div class="content">
+        <h1>Aap thak gayi hain? 🥺</h1>
+
+        <p>
+            Idhar aao meri jaan...
+            Aaj aap bilkul relax karo.
+        </p>
+
+        <div class="scene">
+            <span class="character">🧸</span>
+            <span class="character">🧸</span>
+        </div>
+
+        <div class="prop">🦶 💆🏻‍♀️</div>
+
+        <h2>Foot massage timeee ❤️</h2>
+
+        <p>
+            Aaj aapke pair main daba deta hoon.
+            Aap bas aaram karo, meri pyaari si jaan. 🥺
+        </p>
+
+        <button class="btn" onclick="nextSlide()">
+            Ab chocolate bhi do 🍫
+        </button>
+    </div>
+</section>
+
+
+<!-- SLIDE 3: CHOCOLATE -->
+<section class="slide pink">
+    <div class="content">
+        <h1>Chocolate for youuu 🍫</h1>
+
+        <div class="scene">
+            <span class="character">🧸</span>
+            <span class="prop">🍫</span>
+            <span class="character">🧸</span>
+        </div>
+
+        <div class="gift">🎁</div>
+
+        <h2>Ye saari aapki hain! ❤️</h2>
+
+        <p>
+            Aapki favourite chocolates...
+            jitni chahiye utni le lo.
+            Aapki smile sabse precious hai. 🥰
+        </p>
+
+        <button class="btn" onclick="nextSlide()">
+            Ab ek hug bhi chahiye 🫂
+        </button>
+    </div>
+</section>
+
+
+<!-- SLIDE 4: TIGHT HUG -->
+<section class="slide purple">
+    <div class="content">
+        <h1>Come here meri jaan 🥺</h1>
+
+        <div class="scene">
+            <span class="character">🧸</span>
+            <span class="heart">❤️</span>
+            <span class="character">🧸</span>
+        </div>
+
+        <h2>Ek tight wala huggg 🫂</h2>
+
+        <p>
+            Aapko apni baahon mein lekar
+            saari narazgi door kar doon.
+            Bas aise hi thodi der saath rehna hai. ❤️
+        </p>
+
+        <div class="prop">🫂💕</div>
+
+        <button class="btn" onclick="nextSlide()">
+            Ek kiss bhi milegi? 😘
+        </button>
+    </div>
+</section>
+
+
+<!-- SLIDE 5: KISS -->
+<section class="slide pink">
+    <div class="content">
+        <h1>Muahhhhh 😘</h1>
+
+        <div class="scene">
+            <span class="character">🧸</span>
+            <span class="prop">💋</span>
+            <span class="character">🧸</span>
+        </div>
+
+        <h2>Ek pyaari si forehead kiss ❤️</h2>
+
+        <p>
+            Aapke forehead par ek soft kiss...
+            aur aapko ek baar phir yaad dilana
+            ki aap mere liye kitni special hain. 🥺
+        </p>
+
+        <button class="btn" onclick="nextSlide()">
+            Ab ek gift hai aapke liye 🎁
+        </button>
+    </div>
+</section>
+
+
+<!-- SLIDE 6: JHUMKE -->
+<section class="slide peach">
+    <div class="content">
+        <h1>Something special for you 💎</h1>
+
+        <div class="scene">
+            <span class="character">🧸</span>
+            <span class="gift">🎁</span>
+            <span class="character">🧸</span>
+        </div>
+
+        <div class="prop">✨ 💎 ✨</div>
+
+        <h2>Pretty jhumke for my pretty girl! ❤️</h2>
+
+        <p>
+            Aapke liye beautiful se jhumke...
+            mujhe pata hai aap par bahut pyaare lagenge. 🥰
+        </p>
+
+        <button class="btn" onclick="nextSlide()">
+            Ab last surprise dekho ❤️
+        </button>
+    </div>
+</section>
+
+
+<!-- SLIDE 7: COMFORT -->
+<section class="slide night">
+    <div class="content">
+        <h1>Aap tension mat lo meri jaan 🌙</h1>
+
+        <div class="room">
+            <div class="stars">✨ 🌙 ✨</div>
+
+            <div class="blanket">
+                <div class="scene">
+                    <span class="character">🧸</span>
+                    <span class="heart">❤️</span>
+                    <span class="character">🧸</span>
+                </div>
+
+                <div class="prop">🛏️</div>
+            </div>
+        </div>
+
+        <h2>Main hoon na ❤️</h2>
+
+        <p>
+            Aapko jab bhi comfort chahiye,
+            main aapki baat sunne ke liye hoon.
+            Aapko har baat akele handle karne ki zaroorat nahi hai.
+        </p>
+
+        <p>
+            Aap bas khush rahiye meri jaan.
+            Aapki smile mere liye bahut important hai. 🥺
+        </p>
+
+        <button class="btn" onclick="nextSlide()">
+            Ek last baat... 💌
+        </button>
+    </div>
+</section>
+
+
+<!-- SLIDE 8: FINAL -->
+<section class="slide final">
+    <div class="content">
+
+        <div id="finalNormal">
+            <div class="prop">🧸💗🧸</div>
+
+            <h1>Sorry Meri Jaan ❤️</h1>
+
+            <p>
+                Main perfect nahi hoon,
+                lekin aapko samajhne aur apni galti sudharne
+                ki poori koshish karunga.
+            </p>
+
+            <h2>Ab thoda sa smile kar do na? 🥺</h2>
+
+            <button class="btn" onclick="accepted()">
+                Aapki smile aa gayi ❤️
+            </button>
+
+            <button class="btn" onclick="anotherHug()">
+                Ek aur hug chahiye 🫂
+            </button>
+        </div>
+
+        <div id="finalYes" class="final-message">
+            <div class="prop">🧸🫂🧸</div>
+
+            <h1>Yayyy Meri Jaan! ❤️</h1>
+
+            <p>
+                Aapki smile dekhkar mera din ban gaya. 🥺
+            </p>
+
+            <h2>Lots of hugs and kisses! 😘</h2>
+
+            <div class="prop">🌹🍫💎💗</div>
+        </div>
+
+        <div id="hugMessage" class="final-message">
+            <div class="prop">🧸🫂🧸</div>
+
+            <h1>Ek aur tight huggg! ❤️</h1>
+
+            <p>
+                Jab tak aapka mann kare,
+                teddy hug deta rahega. 🥺💕
+            </p>
+
+            <button class="btn" onclick="accepted()">
+                Ab smile kar do na ❤️
+            </button>
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+// SLIDE NAVIGATION
+
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function nextSlide() {
+    if (current >= slides.length - 1) return;
+
+    slides[current].classList.remove("active");
+    current++;
+    slides[current].classList.add("active");
+
+    heartBurst();
+}
+
+
+// FLOATING HEARTS
+
+const emojis = ["❤️", "💕", "💗", "🌸", "✨", "💖"];
+
+function makeHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+    heart.textContent = emojis[
+        Math.floor(Math.random() * emojis.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (18 + Math.random() * 22) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(makeHeart, 650);
+
+
+// HEART BURST
+
+function heartBurst() {
+    for (let i = 0; i < 15; i++) {
+        setTimeout(makeHeart, i * 45);
+    }
+}
+
+
+// FINAL BUTTONS
+
+function accepted() {
+    document.getElementById("finalNormal").style.display = "none";
+    document.getElementById("hugMessage").style.display = "none";
+    document.getElementById("finalYes").style.display = "block";
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(makeHeart, i * 60);
+    }
+}
+
+function anotherHug() {
+    document.getElementById("finalNormal").style.display = "none";
+    document.getElementById("finalYes").style.display = "none";
+    document.getElementById("hugMessage").style.display = "block";
+
+    heartBurst();
+}
+
+</script>
+
+</body>
+</html>
